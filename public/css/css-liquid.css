@@ -144,7 +144,7 @@ button:hover.blink-border
     transition: max-width 500ms ease-out 100ms, opacity 500ms ease-out 100ms, color;
 }
 .product__inside__info__link a:hover span.text {
-    color: #1fc0a0;
+    color: #a6cd56;
     overflow: hidden;
     opacity: 1;
     max-width: 150px;
@@ -169,7 +169,7 @@ button:hover.blink-border
     color: #333333
 }
 .carusel--parallax.layout10 .recent-post-box h4 a:hover {
-    color: #1fc0a0
+    color: #a6cd56
 }
 .carusel--parallax.layout10 .recent-post-box {
     color: #333333
@@ -237,12 +237,12 @@ button:hover.blink-border
 
 /**/
 .filter-list > li a:hover {
-    color: #1fc0a0;
+    color: #a6cd56;
     text-decoration: none;
 }
 .filter-list li.active > a,
 .filter-list li.open > a {
-    color: #1fc0a0;
+    color: #a6cd56;
 }
 /**/
 #modalAddToCartError .modal-content {
@@ -291,7 +291,7 @@ button:hover.blink-border
     color: #777777
 }
 .viewfullinfo:hover {
-    color: #1fc0a0;
+    color: #a6cd56;
     text-decoration: none;
 }
 
@@ -407,7 +407,7 @@ span.spr-badge-caption{
     font-size: 0.875em;
     line-height: 1.486em;
     height: 40px;
-    background: #1fc0a0;
+    background: #a6cd56;
     color: #ffffff;
     border-radius: 0;
     vertical-align: top;
@@ -422,7 +422,7 @@ span.spr-badge-caption{
 }
 .spr-form-actions .spr-button:hover{
     background-color: #f5f5f5;
-    color: #1fc0a0;
+    color: #a6cd56;
 }
 .spr-review, .spr-form {
     border-color: #e5e5e5 !important;
@@ -613,7 +613,7 @@ span.spr-badge-caption{
 
 }
 .custom__info__link a:hover{
-    color:#1fc0a0;
+    color:#a6cd56;
 }
 .custom__info__link a:hover span.text{
     width: calc(110px + 50%);
@@ -650,7 +650,7 @@ span.spr-badge-caption{
     color: #333333
 }
 .collapse-block .simple-list .active {
-    color: #1fc0a0
+    color: #a6cd56
 }
 /* Menu */
 .dropdown.active .dropdown-menu {
@@ -676,13 +676,13 @@ footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
     color: #333333;
 }
 footer .v-links-list a {
-    color: #1fc0a0;
+    color: #a6cd56;
 }
 footer .v-links-list a:hover {
     color: #333333;
 }
 footer .title-under:after {
-    background: #1fc0a0;
+    background: #a6cd56;
 }
 footer .border-sep-right:after {
     background: #e5e5e5;
@@ -704,7 +704,7 @@ footer .footer-copyright .row {
     }
 }
 footer .btn--ys {
-    background-color: #1fc0a0;
+    background-color: #a6cd56;
     color: #ffffff;
 }
 footer .btn--ys:hover,
@@ -729,7 +729,7 @@ footer .btn--ys:focus {
 }
 footer a.color, footer a.color:hover,
 footer .box-address .icon {
-    color: #1fc0a0;
+    color: #a6cd56;
 }
 footer hr {
     border-color: #e5e5e5;

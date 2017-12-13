@@ -1,12 +1,2065 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="description" content="Default Description"/>
+    <meta name="keywords" content="Magento, Varien, E-commerce"/>
+    <meta name="robots" content="INDEX,FOLLOW"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+        <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,700,500' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" media="all" href="/css/style.css"/>
+        <link rel="stylesheet" type="text/css" media="all" href="/css/css-liquid.css"/>
+        <link rel="stylesheet" type="text/css" media="all" href="/css/stylefont.css"/>
+    {% endblock %}
+</head>
+<body class="loaded">
+
+<div class="header-wrapper"><header id="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-md-4 col-lg-6 col-xl-7" itemscope="" itemtype="http://schema.org/Organization">
+                    <!-- logo start -->
+                    <a href="/" itemprop="url"><img class="logo img-responsive" src="//cdn.shopify.com/s/files/1/1236/4838/t/65/assets/logo.png?1366881093076318436" alt="logo" itemprop="logo"></a>
+                    <!-- logo end -->
+                </div>
+                <div class="col-sm-8 col-md-8 col-lg-6 col-xl-5 text-right">
+                    <!-- slogan start -->
+                    <div class="slogan">Default welcome msg!</div>
+                    <!-- slogan end -->
+                    <div class="settings">
+
+                        <!-- currency start -->
+                        <div class="currency dropdown text-right">
+                            <div class="dropdown-label hidden-sm hidden-xs">Currency:</div>
+                            <a class="dropdown-toggle" data-toggle="dropdown"><span class="current-currency">USD</span><span class="caret"></span></a>
+
+                            <ul class="dropdown-menu dropdown-menu--xs-full">
+
+
+
+
+                                <li data-currency="USD" class="currency__item active"><a style="cursor: pointer">USD - US Dollar</a></li>
+
+
+
+
+                                <li data-currency="EUR" class="currency__item"><a style="cursor: pointer">EUR - Euro</a></li>
+
+
+
+
+                                <li data-currency="GBP" class="currency__item"><a style="cursor: pointer">GBP - British Pound Sterling</a></li>
+
+                                <li class="dropdown-menu__close"><a href="#"><span class="icon icon-close"></span>close</a></li>
+                            </ul>
+                        </div>
+                        <!-- currency end -->
+
+                        <!-- language start -->
+                        <div class="language dropdown text-right">
+                            <div class="dropdown-label hidden-sm hidden-xs">Language:</div>
+                            <a class="dropdown-toggle" data-toggle="dropdown">English<span class="caret"></span></a>
+                            <ul class="dropdown-menu dropdown-menu--xs-full">
+
+                                <li><a href="https://yourstore-language.myshopify.com/">Spanish</a></li>
+
+                                <li><a href="https://yourstore-language.myshopify.com/pages/page_rus">Russian</a></li>
+
+                                <li><a href="https://yourstore-language.myshopify.com/pages/page_de">German</a></li>
+
+                                <li class="dropdown-menu__close"><a href="#"><span class="icon icon-close"></span>close</a></li>
+                            </ul>
+                        </div>
+                        <!-- language end -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="stuck-nav">
+            <div class="container offset-top-5">
+                <div class="row">
+                    <div class="pull-left col-sm-9 col-md-9 col-lg-10">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <nav class="navbar ">
+                            <div class="responsive-menu mainMenu">
+
+                                <div class="col-xs-2 visible-mobile-menu-on">
+                                    <div class="expand-nav compact-hidden">
+                                        <a href="#off-canvas-menu" id="off-canvas-menu-toggle">
+                                            <div class="navbar-toggle">
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                                <span class="menu-text">MENU</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <ul class="nav navbar-nav">
+                                    <li class="dl-close"></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="dropdown dropdown-mega-menu selected">
+                                        <a href="/" class="dropdown-toggle" data-toggle="dropdown"><span class="act-underline">
+
+
+
+
+          LAYOUT</span>
+                                        </a>
+
+
+
+
+
+
+
+                                        <ul class="dropdown-menu megamenu image-links-layout" role="menu">
+                                            <style><!--
+                                                .image-link { position: relative; }
+                                                .newbadge { position: absolute; top: -5px; z-index: 1; }
+                                                --></style>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="http://yourstore-default.myshopify.com/?preview_theme_id="> <span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/layout-img-1.jpg?124048568246293959" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Home page - Layout 1 (Default)</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="//yourstore-default.myshopify.com/?preview_theme_id=163084682"> <span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/layout-img-21.jpg?3220629194399907831" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Home page - Layout 2</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="//yourstore-default.myshopify.com/?preview_theme_id=163084746"> <span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/layout-img-3.jpg?124048568246293959" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Home page - Layout 3</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="//yourstore-default.myshopify.com/?preview_theme_id=163085642"> <span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/layout-img-4.jpg?124048568246293959" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Home page - Layout 4</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="http://yourstore-default.myshopify.com/?preview_theme_id=183023124">
+<div class="newbadge"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/skinbadge.png?6715970107301675613" alt="new skin"></div>
+<span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/0.png?8547094468237325294" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Instagram Shop</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="http://yourstore-skins.myshopify.com/?preview_theme_id=">
+<div class="newbadge"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/skinbadge.png?6715970107301675613" alt="new skin"></div>
+<span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/skin01.jpg?12382534308327699432" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Lingerie</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="http://yourstore-skins.myshopify.com/?preview_theme_id=163109002">
+<div class="newbadge"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/skinbadge.png?6715970107301675613" alt="new skin"></div>
+<span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/skin02.jpg?12382534308327699432" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">organic cosmetics</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="http://yourstore-skins.myshopify.com/?preview_theme_id=163109578">
+<div class="newbadge"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/skinbadge.png?6715970107301675613" alt="new skin"></div>
+<span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/skin03.jpg?12382534308327699432" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Furniture</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="http://yourstore-skins.myshopify.com/?preview_theme_id=163111178">
+<div class="newbadge"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/skinbadge.png?6715970107301675613" alt="new skin"></div>
+<span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/skin04.jpg?12382534308327699432" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Medical equipments</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="http://yourstore-skins.myshopify.com/?preview_theme_id=163112714">
+<div class="newbadge"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/skinbadge.png?6715970107301675613" alt="new skin"></div>
+<span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/skin05.jpg?12382534308327699432" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Jewelry</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="http://yourstore-skins.myshopify.com/?preview_theme_id=163110282">
+<div class="newbadge"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/skinbadge.png?6715970107301675613" alt="new skin"></div>
+<span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/skin06.jpg?12382534308327699432" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Baby clothes</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="http://yourstore-skins.myshopify.com/?preview_theme_id=163113802">
+<div class="newbadge"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/skinbadge.png?6715970107301675613" alt="new skin"></div>
+<span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/skin07.jpg?12382534308327699432" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Watches</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="http://yourstore-skins.myshopify.com/?preview_theme_id=163107466">
+<div class="newbadge"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/skinbadge.png?6715970107301675613" alt="new skin"></div>
+<span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/skin08.jpg?12382534308327699432" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Travel</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="http://yourstore-skins.myshopify.com/?preview_theme_id=163106314">
+<div class="newbadge"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/skinbadge.png?6715970107301675613" alt="new skin"></div>
+<span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/skin09.jpg?12382534308327699432" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Gadgets</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="http://yourstore-skins.myshopify.com/?preview_theme_id=163115274">
+<div class="newbadge"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/skinbadge.png?6715970107301675613" alt="new skin"></div>
+<span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/skin10.jpg?12382534308327699432" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Bikes store</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="https://yourstore-default.myshopify.com/?preview_theme_id=163086026"> <span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/layout-img-5.jpg?124048568246293959" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Home page - Layout 5</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="https://yourstore-default.myshopify.com/?preview_theme_id=163086218"> <span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/layout-img-6.jpg?124048568246293959" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Home page - Layout 6</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="http://yourstore-default.myshopify.com/?preview_theme_id=163086410"> <span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/layout-img-7.jpg?124048568246293959" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Home page - Layout 7</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="http://yourstore-default.myshopify.com/?preview_theme_id=163086602"> <span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/layout-img-8.jpg?124048568246293959" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Home page - Layout 8</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="http://yourstore-default.myshopify.com/?preview_theme_id=163086986"> <span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/layout-img-9.jpg?124048568246293959" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Home page - Layout 9</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="https://yourstore-electronics.myshopify.com/"> <span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/layout-img-11.jpg?124048568246293959" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Home page - Layout 10</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="https://yourstore-car.myshopify.com/"> <span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/layout-img-10.jpg?124048568246293959" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Home page - Layout 11</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="https://yourstore-tools.myshopify.com/"> <span class="figure"> <img class="img-responsive img-border" src="//cdn.shopify.com/s/files/1/1236/4838/files/layout-img-121.jpg?3220629194399907831" alt=""> <span class="description"> <span class="block-table"> <span class="block-table-cell"> <span class="btn btn--ys btn--lg">LAUNCH</span> </span> </span> </span> </span> <span class="figcaption">Home page - Layout 12</span> </a> </span></li>
+                                        </ul>
+
+
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="dropdown dropdown-mega-menu">
+                                        <a href="/collections" class="dropdown-toggle" data-toggle="dropdown"><span class="act-underline">
+
+
+
+
+          LISTING</span>
+                                        </a>
+
+
+
+
+
+
+
+                                        <ul class="dropdown-menu megamenu image-links-layout" role="menu">
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="https://yourstore-default.myshopify.com/collections/women-s"> <span class="figure"><img class="img-responsive" src="https://cdn.shopify.com/s/files/1/1236/4838/files/listing-img-1.png?14834718640058778481" alt=""></span> <span class="figcaption text-uppercase">left column</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="https://yourstore-default.myshopify.com/collections/demo-left-right"> <span class="figure"><img class="img-responsive" src="https://cdn.shopify.com/s/files/1/1236/4838/files/listing-img-2.png?14834718640058778481" alt=""></span> <span class="figcaption text-uppercase">left, right column</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="https://yourstore-default.myshopify.com/collections/demo-right"> <span class="figure"><img class="img-responsive" src="https://cdn.shopify.com/s/files/1/1236/4838/files/listing-img-3.png?14834718640058778481" alt=""></span> <span class="figcaption text-uppercase">right column</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="https://yourstore-default.myshopify.com/collections/demo-only"> <span class="figure"><img class="img-responsive" src="https://cdn.shopify.com/s/files/1/1236/4838/files/listing-img-4.png?14834718640058778481" alt=""></span> <span class="figcaption text-uppercase">without columns</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="https://yourstore-default.myshopify.com/collections/men-s"> <span class="figure"><img class="img-responsive" src="https://cdn.shopify.com/s/files/1/1236/4838/files/listing-img-5.png?14834718640058778481" alt=""></span> <span class="figcaption text-uppercase">left column,<br> without Static block</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="https://yourstore-default.myshopify.com/collections/demo-without-content"> <span class="figure"><img class="img-responsive" src="https://cdn.shopify.com/s/files/1/1236/4838/files/listing-img-6.png?14834718640058778481" alt=""></span> <span class="figcaption text-uppercase">without columns,<br> without Static block</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="https://yourstore-default.myshopify.com/collections/demo-small"> <span class="figure"><img class="img-responsive" src="https://cdn.shopify.com/s/files/1/1236/4838/files/listing-img-7.png?14834718640058778481" alt=""></span> <span class="figcaption text-uppercase">Small</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="https://yourstore-default.myshopify.com/collections/demo-big"> <span class="figure"><img class="img-responsive img-border" src="https://cdn.shopify.com/s/files/1/1236/4838/files/listing-img-8.png?14834718640058778481" alt=""></span> <span class="figcaption text-uppercase">Big</span> </a> </span></li>
+                                        </ul>
+
+
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="dropdown dropdown-mega-menu">
+                                        <a href="/products/paul-smith-blazer" class="dropdown-toggle" data-toggle="dropdown"><span class="act-underline">
+
+
+
+
+          PRODUCT</span>
+                                        </a>
+
+
+
+
+
+
+
+                                        <ul class="dropdown-menu megamenu image-links-layout" role="menu">
+                                            <li class="col-one-third"><span class="image-link"> <a href="https://yourstore-default.myshopify.com/pages/product-page-small"> <span class="figure"><img class="img-responsive" src="https://cdn.shopify.com/s/files/1/1236/4838/files/product-menu-img-1.png?17598935971825499069" alt=""></span> <span class="figcaption text-uppercase">image size - small</span> </a> </span></li>
+                                            <li class="col-one-third"><span class="image-link"> <a href="https://yourstore-default.myshopify.com/products/paul-smith-blazer"> <span class="figure"><img class="img-responsive" src="https://cdn.shopify.com/s/files/1/1236/4838/files/product-menu-img-2.png?17598935971825499069" alt=""></span> <span class="figcaption text-uppercase">image size - medium</span> </a> </span></li>
+                                            <li class="col-one-third"><span class="image-link"> <a href="https://yourstore-default.myshopify.com/pages/product-page-big"> <span class="figure"><img class="img-responsive" src="https://cdn.shopify.com/s/files/1/1236/4838/files/product-menu-img-3.png?17598935971825499069" alt=""></span> <span class="figcaption text-uppercase">image size - big</span> </a> </span></li>
+                                        </ul>
+
+
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="dropdown dropdown-mega-menu">
+                                        <a href="/blogs/news" class="dropdown-toggle" data-toggle="dropdown"><span class="act-underline">
+
+
+
+
+          BLOG</span>
+                                        </a>
+
+
+
+
+
+
+
+                                        <ul class="dropdown-menu megamenu image-links-layout" role="menu">
+                                            <li class="col-one-third"><span class="image-link"> <a href="https://yourstore-default.myshopify.com/blogs/news"> <span class="figure"><img class="img-responsive" src="https://cdn.shopify.com/s/files/1/1236/4838/files/blog-menu-img-1.png?17598935971825499069" alt=""></span> <span class="figcaption text-uppercase">blog - Layout 1</span> </a> </span></li>
+                                            <li class="col-one-third"><span class="image-link"> <a href="https://yourstore-default.myshopify.com/pages/demo-blog-design-2"> <span class="figure"><img class="img-responsive" src="https://cdn.shopify.com/s/files/1/1236/4838/files/blog-menu-img-2.png?17598935971825499069" alt=""></span> <span class="figcaption text-uppercase">blog - Layout 2</span> </a> </span></li>
+                                            <li class="col-one-third"><span class="image-link"> <a href="https://yourstore-default.myshopify.com/pages/demo-blog-design-3"> <span class="figure"><img class="img-responsive" src="https://cdn.shopify.com/s/files/1/1236/4838/files/blog-menu-img-3.png?17598935971825499069" alt=""></span> <span class="figcaption text-uppercase">blog - Layout 3</span> </a> </span></li>
+                                        </ul>
+
+
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="dropdown dropdown-mega-menu">
+                                        <a href="/pages/gallery-2" class="dropdown-toggle" data-toggle="dropdown"><span class="act-underline">
+
+
+
+
+          Gallery</span>
+                                        </a>
+
+
+
+
+
+
+
+                                        <ul class="dropdown-menu megamenu image-links-layout" role="menu">
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="https://yourstore-default.myshopify.com/pages/gallery-2"> <span class="figure"><img class="img-responsive" src="https://cdn.shopify.com/s/files/1/1236/4838/files/gallery-menu-img-1.png?15831167777533216361" alt=""></span> <span class="figcaption text-uppercase">Gallery - Layout 1</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="https://yourstore-default.myshopify.com/pages/gallery-3"> <span class="figure"><img class="img-responsive" src="https://cdn.shopify.com/s/files/1/1236/4838/files/gallery-menu-img-2.png?15831167777533216361" alt=""></span> <span class="figcaption text-uppercase">Gallery - Layout 2</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="https://yourstore-default.myshopify.com/pages/gallery-4"> <span class="figure"><img class="img-responsive" src="https://cdn.shopify.com/s/files/1/1236/4838/files/gallery-menu-img-3.png?15831167777533216361" alt=""></span> <span class="figcaption text-uppercase">Gallery - Layout 3</span> </a> </span></li>
+                                            <li class="col-one-fourth"><span class="image-link"> <a href="https://yourstore-default.myshopify.com/pages/gallery-5"> <span class="figure"><img class="img-responsive" src="https://cdn.shopify.com/s/files/1/1236/4838/files/gallery-menu-img-4.png?15831167777533216361" alt=""></span> <span class="figcaption text-uppercase">Gallery - Layout 4</span> </a> </span></li>
+                                        </ul>
+
+
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="dropdown dropdown-mega-menu dropdown-two-col">
+                                        <a href="/pages/about" class="dropdown-toggle" data-toggle="dropdown"><span class="act-underline">
+
+
+
+
+          PAGES</span>
+                                        </a>
+
+
+
+                                        <ul class="dropdown-menu multicolumn two-col" role="menu">
+                                            <li class="dl-back"><a href="#"><span class="icon icon-chevron_left"></span>back</a></li>
+
+
+                                            <li>
+                                                <a href="/pages/demo-multilevels">Submenu Video</a>
+
+
+                                                <ul class="megamenu__submenu">
+
+                                                    <li><a href="#">Multilevel 1</a>
+
+
+                                                        <ul><!--  class="popup-left" -->
+
+                                                            <li><a href="#">Multilevel 2</a></li>
+
+                                                        </ul>
+
+                                                    </li>
+
+                                                </ul>
+
+                                            </li>
+
+                                            <li>
+                                                <a href="/pages/about">About</a>
+
+
+                                            </li>
+
+                                            <li>
+                                                <a href="/pages/typography">Typography</a>
+
+
+                                            </li>
+
+                                            <li>
+                                                <a href="/pages/delivery-page">Delivery Page</a>
+
+
+                                            </li>
+
+                                            <li>
+                                                <a href="/pages/faq">Faq</a>
+
+
+                                            </li>
+
+                                            <li>
+                                                <a href="/pages/support-24">Support-24</a>
+
+
+                                            </li>
+
+                                            <li>
+                                                <a href="/pages/contacts">Contact</a>
+
+
+                                            </li>
+
+                                            <li>
+                                                <a href="/pages/warranty-and-services">Warranty and Services</a>
+
+
+                                            </li>
+
+                                            <li>
+                                                <a href="/pages/lookbook">Lookbook</a>
+
+
+                                            </li>
+
+                                            <li>
+                                                <a href="/pages/password">Password</a>
+
+
+                                            </li>
+
+                                        </ul>
+
+
+
+
+
+
+
+
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="dropdown dropdown-mega-menu">
+                                        <a href="/collections/women-s" class="dropdown-toggle" data-toggle="dropdown"><span class="act-underline">
+
+
+          <span class="badge badge--menu">new</span>
+
+          WOMEN’s</span>
+                                        </a>
+
+
+
+
+
+                                        <ul class="dropdown-menu megamenu" role="menu">
+
+
+
+
+
+
+
+
+                                            <li class="col-sm-3">
+                                                <a href="/collections/women-s" class="megamenu__subtitle">
+                                                    <span>TOPS</span>
+
+                                                </a>
+
+
+
+
+
+
+
+
+
+                                                <ul class="megamenu__submenu">
+
+                                                    <li class="level2"><a href="/collections/women-s/blouses-shirts">Blouses &amp; Shirts</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/women-s/dresses">Dresses</a>
+
+
+
+
+
+
+
+
+
+                                                        <ul class="megamenu__submenu">
+
+                                                            <li class="level3"><a href="/collections/women-s/bodycon-dresses">Bodycon Dresses</a>
+
+
+
+
+
+
+
+                                                            </li>
+
+                                                            <li class="level3"><a href="/collections/women-s/midi-dresses">Midi Dresses</a>
+
+
+
+
+
+
+
+
+
+                                                                <ul class="megamenu__submenu">
+
+                                                                    <li class="level4"><a href="/collections/women-s/occasion-&amp;-cocktail">Occasion &amp; Cocktail</a></li>
+
+                                                                    <li class="level4"><a href="/collections/women-s/casual-everyday">Casual Everyday</a></li>
+
+                                                                    <li class="level4"><a href="/collections/women-s/going-out-&amp;-party-dresses">Going Out &amp; Party Dresses</a></li>
+
+                                                                </ul>
+
+
+                                                            </li>
+
+                                                            <li class="level3"><a href="/collections/women-s/fit-&amp;-flare">Fit &amp; Flare</a>
+
+
+
+
+
+
+
+                                                            </li>
+
+                                                            <li class="level3"><a href="/collections/women-s/shift-dresses">Shift Dresses</a>
+
+
+
+
+
+
+
+                                                            </li>
+
+                                                            <li class="level3"><a href="/collections/women-s/slip-dresses">Slip Dresses</a>
+
+
+
+
+
+
+
+                                                            </li>
+
+                                                            <li class="level3"><a href="/collections/women-s/tunic-dresses">Tunic Dresses</a>
+
+
+
+
+
+
+
+                                                            </li>
+
+                                                        </ul>
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/women-s/tops-&amp;-t-shirts">Tops &amp; T-shirts</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/women-s/sleeveless-tops">Sleeveless Tops</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/women-s/sweaters-&amp;-cardigans">Sweaters &amp; Cardigans</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/women-s/jackets">Jackets</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/women-s/outerwear">Outerwear</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                </ul>
+
+
+                                            </li>
+
+                                            <li class="col-sm-3">
+                                                <a href="/collections/women-s" class="megamenu__subtitle">
+                                                    <span>BOTTOMS</span>
+
+                                                </a>
+
+
+
+
+
+
+
+
+
+                                                <ul class="megamenu__submenu">
+
+                                                    <li class="level2"><a href="/collections/women-s/trousers">Trousers</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/women-s/jeans">Jeans</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/women-s/leggings">Leggings</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/women-s/jumpsuit-&amp;-shorts">Jumpsuit &amp; shorts</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/women-s/skirts">Skirts</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/women-s/tights">Tights</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/women-s/beachware">Beachware</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                </ul>
+
+
+                                            </li>
+
+                                            <li class="col-sm-3">
+                                                <a href="/collections/womens-accessories" class="megamenu__subtitle">
+                                                    <span>ACCESSORIES</span>
+
+                                                </a>
+
+
+
+
+
+
+
+
+
+                                                <ul class="megamenu__submenu">
+
+                                                    <li class="level2"><a href="/collections/womens-accessories/jewellery">Jewellery</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/womens-accessories/hats">Hats</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/womens-accessories/scarves-&amp;-snoods">Scarves &amp; snoods</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/womens-accessories/belts">Belts</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/womens-accessories/bags">Bags</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/womens-accessories/shoes">Shoes</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/womens-accessories/sunglasses">Sunglasses</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                </ul>
+
+
+                                            </li>
+
+
+
+
+
+
+                                            <li class="col-sm-3 hidden-xs">
+                                                <a href="#" class="megamenu__subtitle"><span>FEATURED</span></a>
+
+
+
+
+
+
+
+
+                                                <div class="carousel-products megaMenuCarousel_js slick-initialized slick-slider"><button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block; top: 155px;">Previous</button>
+
+
+
+
+
+
+
+
+
+                                                    <div aria-live="polite" class="slick-list draggable"><div class="slick-track" role="listbox" style="opacity: 1; width: 1500px; transform: translate3d(-250px, 0px, 0px);"><div class="slick-slide slick-cloned" tabindex="-1" role="option" aria-describedby="slick-slide03" style="width: 250px;" data-slick-index="-1" aria-hidden="true">
+                                                                <!-- product -->
+                                                                <div class="product">
+                                                                    <div class="product__inside">
+                                                                        <!-- product image -->
+                                                                        <div class="product__inside__image">
+                                                                            <a href="/products/black-large" tabindex="-1"> <img src="//cdn.shopify.com/s/files/1/1236/4838/products/Black_001_ProductLarge_large.JPG?v=1460209182" alt="Black Large"> </a>
+                                                                        </div>
+                                                                        <!-- /product image -->
+                                                                        <!-- product name -->
+                                                                        <div class="product__inside__name">
+                                                                            <h2><a href="/products/black-large" tabindex="-1">Black Large</a></h2>
+                                                                        </div>
+                                                                        <!-- /product name -->
+                                                                        <!-- product price -->
+                                                                        <div class="product__inside__price price-box"><span class="money" data-currency-usd="$100.00">$100.00</span></div>
+                                                                        <!-- /product price -->
+                                                                    </div>
+                                                                </div>
+                                                                <!-- /product -->
+                                                            </div><div class="slick-slide slick-current slick-active" tabindex="-1" role="option" aria-describedby="slick-slide00" style="width: 250px;" data-slick-index="0" aria-hidden="false">
+                                                                <!-- product -->
+                                                                <div class="product">
+                                                                    <div class="product__inside">
+                                                                        <!-- product image -->
+                                                                        <div class="product__inside__image">
+                                                                            <a href="/products/adidas-originals-trainers" tabindex="0"> <img src="//cdn.shopify.com/s/files/1/1236/4838/products/adidas_Originals_ZX_Flux_Weave_Black___Blue_Trainers_0_large.JPG?v=1476446528" alt="1"> </a>
+                                                                        </div>
+                                                                        <!-- /product image -->
+                                                                        <!-- product name -->
+                                                                        <div class="product__inside__name">
+                                                                            <h2><a href="/products/adidas-originals-trainers" tabindex="0">adidas Originals Trainers</a></h2>
+                                                                        </div>
+                                                                        <!-- /product name -->
+                                                                        <!-- product price -->
+                                                                        <div class="product__inside__price price-box"><span class="money" data-currency-usd="$90.00">$90.00</span></div>
+                                                                        <!-- /product price -->
+                                                                    </div>
+                                                                </div>
+                                                                <!-- /product -->
+                                                            </div><div class="slick-slide" tabindex="-1" role="option" aria-describedby="slick-slide01" style="width: 250px;" data-slick-index="1" aria-hidden="true">
+                                                                <!-- product -->
+                                                                <div class="product">
+                                                                    <div class="product__inside">
+                                                                        <!-- product image -->
+                                                                        <div class="product__inside__image">
+                                                                            <a href="/products/black-cap" tabindex="-1"> <img src="//cdn.shopify.com/s/files/1/1236/4838/products/Black_463196_001_ProductLarge_large.JPG?v=1460209220" alt="Black Cap"> </a>
+                                                                        </div>
+                                                                        <!-- /product image -->
+                                                                        <!-- product name -->
+                                                                        <div class="product__inside__name">
+                                                                            <h2><a href="/products/black-cap" tabindex="-1">Black Cap</a></h2>
+                                                                        </div>
+                                                                        <!-- /product name -->
+                                                                        <!-- product price -->
+                                                                        <div class="product__inside__price price-box"><span class="money" data-currency-usd="$105.00">$105.00</span></div>
+                                                                        <!-- /product price -->
+                                                                    </div>
+                                                                </div>
+                                                                <!-- /product -->
+                                                            </div><div class="slick-slide" tabindex="-1" role="option" aria-describedby="slick-slide02" style="width: 250px;" data-slick-index="2" aria-hidden="true">
+                                                                <!-- product -->
+                                                                <div class="product">
+                                                                    <div class="product__inside">
+                                                                        <!-- product image -->
+                                                                        <div class="product__inside__image">
+                                                                            <a href="/products/black-coffee-belt" tabindex="-1"> <img src="//cdn.shopify.com/s/files/1/1236/4838/products/BlackCoffee_001_ProductLarge_large.JPG?v=1460209258" alt="Black Coffee Belt"> </a>
+                                                                        </div>
+                                                                        <!-- /product image -->
+                                                                        <!-- product name -->
+                                                                        <div class="product__inside__name">
+                                                                            <h2><a href="/products/black-coffee-belt" tabindex="-1">Black Coffee Belt</a></h2>
+                                                                        </div>
+                                                                        <!-- /product name -->
+                                                                        <!-- product price -->
+                                                                        <div class="product__inside__price price-box"><span class="money" data-currency-usd="$110.00">$110.00</span></div>
+                                                                        <!-- /product price -->
+                                                                    </div>
+                                                                </div>
+                                                                <!-- /product -->
+                                                            </div><div class="slick-slide" tabindex="-1" role="option" aria-describedby="slick-slide03" style="width: 250px;" data-slick-index="3" aria-hidden="true">
+                                                                <!-- product -->
+                                                                <div class="product">
+                                                                    <div class="product__inside">
+                                                                        <!-- product image -->
+                                                                        <div class="product__inside__image">
+                                                                            <a href="/products/black-large" tabindex="-1"> <img src="//cdn.shopify.com/s/files/1/1236/4838/products/Black_001_ProductLarge_large.JPG?v=1460209182" alt="Black Large"> </a>
+                                                                        </div>
+                                                                        <!-- /product image -->
+                                                                        <!-- product name -->
+                                                                        <div class="product__inside__name">
+                                                                            <h2><a href="/products/black-large" tabindex="-1">Black Large</a></h2>
+                                                                        </div>
+                                                                        <!-- /product name -->
+                                                                        <!-- product price -->
+                                                                        <div class="product__inside__price price-box"><span class="money" data-currency-usd="$100.00">$100.00</span></div>
+                                                                        <!-- /product price -->
+                                                                    </div>
+                                                                </div>
+                                                                <!-- /product -->
+                                                            </div><div class="slick-slide slick-cloned" tabindex="-1" role="option" aria-describedby="slick-slide00" style="width: 250px;" data-slick-index="4" aria-hidden="true">
+                                                                <!-- product -->
+                                                                <div class="product">
+                                                                    <div class="product__inside">
+                                                                        <!-- product image -->
+                                                                        <div class="product__inside__image">
+                                                                            <a href="/products/adidas-originals-trainers" tabindex="-1"> <img src="//cdn.shopify.com/s/files/1/1236/4838/products/adidas_Originals_ZX_Flux_Weave_Black___Blue_Trainers_0_large.JPG?v=1476446528" alt="1"> </a>
+                                                                        </div>
+                                                                        <!-- /product image -->
+                                                                        <!-- product name -->
+                                                                        <div class="product__inside__name">
+                                                                            <h2><a href="/products/adidas-originals-trainers" tabindex="-1">adidas Originals Trainers</a></h2>
+                                                                        </div>
+                                                                        <!-- /product name -->
+                                                                        <!-- product price -->
+                                                                        <div class="product__inside__price price-box"><span class="money" data-currency-usd="$90.00">$90.00</span></div>
+                                                                        <!-- /product price -->
+                                                                    </div>
+                                                                </div>
+                                                                <!-- /product -->
+                                                            </div></div></div><button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block; top: 155px;">Next</button></div>
+                                                <!-- /carousel -->
+
+                                            </li>
+
+
+                                            <li class="col-sm-12 hidden-xs"><div class="row">
+                                                    <div class="col-sm-6"> <a href="#" class="discolor-hover"><img class="img-responsive" src="//cdn.shopify.com/s/files/1/1236/4838/files/banner-megamenu-01.jpg?16466298140297529436" alt=""></a>
+                                                    </div>
+                                                    <div class="col-sm-6"> <a href="#" class="discolor-hover"><img class="img-responsive" src="//cdn.shopify.com/s/files/1/1236/4838/files/banner-megamenu-02.jpg?16466298140297529436" alt=""></a>
+                                                    </div>
+                                                </div></li>
+
+                                        </ul>
+
+
+
+
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="dropdown dropdown-mega-menu">
+                                        <a href="/collections/men-s" class="dropdown-toggle" data-toggle="dropdown"><span class="act-underline">
+
+
+
+          <span class="badge badge--menu badge--color">sale</span>
+          Men’s</span>
+                                        </a>
+
+
+
+
+
+                                        <ul class="dropdown-menu megamenu" role="menu" style="">
+
+
+
+
+
+
+
+
+                                            <li class="col-sm-3">
+                                                <a href="/collections/men-s/caps-&amp;-hats" class="megamenu__subtitle">
+                                                    <span>Caps &amp; Hats</span>
+
+                                                    <span class="megamenu__category-image hidden-xs"><img class="img-responsive" src="//cdn.shopify.com/s/files/1/1236/4838/files/mens-category-1.jpg?7991156427119609511" alt=""></span>
+
+                                                </a>
+
+
+
+
+
+
+
+
+
+                                                <ul class="megamenu__submenu">
+
+                                                    <li class="level2"><a href="/collections/men-s/bags">Bags</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/men-s/grooming">Grooming</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/men-s/hoodies-&amp;-sweatshirts">Hoodies &amp; Sweatshirts</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/men-s/jackets-&amp;-coats">Jackets &amp; Coats</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                </ul>
+
+
+                                            </li>
+
+                                            <li class="col-sm-3">
+                                                <a href="/collections/men-s/blazers" class="megamenu__subtitle">
+                                                    <span>Blazers</span>
+
+                                                    <span class="megamenu__category-image hidden-xs"><img class="img-responsive" src="//cdn.shopify.com/s/files/1/1236/4838/files/mens-category-2.jpg?7991156427119609511" alt=""></span>
+
+                                                </a>
+
+
+
+
+
+
+
+
+
+                                                <ul class="megamenu__submenu">
+
+                                                    <li class="level2"><a href="/collections/men-s/jeans">Jeans</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/men-s/jumpers-&amp;-cardigans">Jumpers &amp; Cardigans</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/men-s/jewellery">Jewellery</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/men-s/sweat-pants">Sweat Pants</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                </ul>
+
+
+                                            </li>
+
+                                            <li class="col-sm-3">
+                                                <a href="/collections/men-s/accesories" class="megamenu__subtitle">
+                                                    <span>Accesories</span>
+
+                                                    <span class="megamenu__category-image hidden-xs"><img class="img-responsive" src="//cdn.shopify.com/s/files/1/1236/4838/files/mens-category-3.jpg?7991156427119609511" alt=""></span>
+
+                                                </a>
+
+
+
+
+
+
+
+
+
+                                                <ul class="megamenu__submenu">
+
+                                                    <li class="level2"><a href="/collections/men-s/leather-jackets">Leather Jackets</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/men-s/long-sleeve-t-shirts">Long Sleeve T-Shirts</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/men-s/loungewear">Loungewear</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                    <li class="level2"><a href="/collections/men-s/polo-shirts">Polo Shirts</a>
+
+
+
+
+
+
+
+                                                    </li>
+
+                                                </ul>
+
+
+                                            </li>
+
+
+
+
+
+
+                                            <li class="col-sm-3 hidden-xs">
+                                                <a href="#" class="megamenu__subtitle"><span>FEATURED</span></a>
+
+
+
+
+
+
+
+
+                                                <div class="carousel-products megaMenuCarousel_js slick-initialized slick-slider"><button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block; top: 155px;">Previous</button>
+
+
+
+
+
+
+
+
+
+                                                    <div aria-live="polite" class="slick-list draggable"><div class="slick-track" role="listbox" style="opacity: 1; width: 1500px; transform: translate3d(-250px, 0px, 0px);"><div class="slick-slide slick-cloned" tabindex="-1" role="option" aria-describedby="slick-slide13" style="width: 250px;" data-slick-index="-1" aria-hidden="true">
+                                                                <!-- product -->
+                                                                <div class="product">
+                                                                    <div class="product__inside">
+                                                                        <!-- product image -->
+                                                                        <div class="product__inside__image">
+                                                                            <a href="/products/black-large" tabindex="-1"> <img src="//cdn.shopify.com/s/files/1/1236/4838/products/Black_001_ProductLarge_large.JPG?v=1460209182" alt="Black Large"> </a>
+                                                                        </div>
+                                                                        <!-- /product image -->
+                                                                        <!-- product name -->
+                                                                        <div class="product__inside__name">
+                                                                            <h2><a href="/products/black-large" tabindex="-1">Black Large</a></h2>
+                                                                        </div>
+                                                                        <!-- /product name -->
+                                                                        <!-- product price -->
+                                                                        <div class="product__inside__price price-box"><span class="money" data-currency-usd="$100.00">$100.00</span></div>
+                                                                        <!-- /product price -->
+                                                                    </div>
+                                                                </div>
+                                                                <!-- /product -->
+                                                            </div><div class="slick-slide slick-current slick-active" tabindex="-1" role="option" aria-describedby="slick-slide10" style="width: 250px;" data-slick-index="0" aria-hidden="false">
+                                                                <!-- product -->
+                                                                <div class="product">
+                                                                    <div class="product__inside">
+                                                                        <!-- product image -->
+                                                                        <div class="product__inside__image">
+                                                                            <a href="/products/adidas-originals-trainers" tabindex="0"> <img src="//cdn.shopify.com/s/files/1/1236/4838/products/adidas_Originals_ZX_Flux_Weave_Black___Blue_Trainers_0_large.JPG?v=1476446528" alt="1"> </a>
+                                                                        </div>
+                                                                        <!-- /product image -->
+                                                                        <!-- product name -->
+                                                                        <div class="product__inside__name">
+                                                                            <h2><a href="/products/adidas-originals-trainers" tabindex="0">adidas Originals Trainers</a></h2>
+                                                                        </div>
+                                                                        <!-- /product name -->
+                                                                        <!-- product price -->
+                                                                        <div class="product__inside__price price-box"><span class="money" data-currency-usd="$90.00">$90.00</span></div>
+                                                                        <!-- /product price -->
+                                                                    </div>
+                                                                </div>
+                                                                <!-- /product -->
+                                                            </div><div class="slick-slide" tabindex="-1" role="option" aria-describedby="slick-slide11" style="width: 250px;" data-slick-index="1" aria-hidden="true">
+                                                                <!-- product -->
+                                                                <div class="product">
+                                                                    <div class="product__inside">
+                                                                        <!-- product image -->
+                                                                        <div class="product__inside__image">
+                                                                            <a href="/products/black-cap" tabindex="-1"> <img src="//cdn.shopify.com/s/files/1/1236/4838/products/Black_463196_001_ProductLarge_large.JPG?v=1460209220" alt="Black Cap"> </a>
+                                                                        </div>
+                                                                        <!-- /product image -->
+                                                                        <!-- product name -->
+                                                                        <div class="product__inside__name">
+                                                                            <h2><a href="/products/black-cap" tabindex="-1">Black Cap</a></h2>
+                                                                        </div>
+                                                                        <!-- /product name -->
+                                                                        <!-- product price -->
+                                                                        <div class="product__inside__price price-box"><span class="money" data-currency-usd="$105.00">$105.00</span></div>
+                                                                        <!-- /product price -->
+                                                                    </div>
+                                                                </div>
+                                                                <!-- /product -->
+                                                            </div><div class="slick-slide" tabindex="-1" role="option" aria-describedby="slick-slide12" style="width: 250px;" data-slick-index="2" aria-hidden="true">
+                                                                <!-- product -->
+                                                                <div class="product">
+                                                                    <div class="product__inside">
+                                                                        <!-- product image -->
+                                                                        <div class="product__inside__image">
+                                                                            <a href="/products/black-coffee-belt" tabindex="-1"> <img src="//cdn.shopify.com/s/files/1/1236/4838/products/BlackCoffee_001_ProductLarge_large.JPG?v=1460209258" alt="Black Coffee Belt"> </a>
+                                                                        </div>
+                                                                        <!-- /product image -->
+                                                                        <!-- product name -->
+                                                                        <div class="product__inside__name">
+                                                                            <h2><a href="/products/black-coffee-belt" tabindex="-1">Black Coffee Belt</a></h2>
+                                                                        </div>
+                                                                        <!-- /product name -->
+                                                                        <!-- product price -->
+                                                                        <div class="product__inside__price price-box"><span class="money" data-currency-usd="$110.00">$110.00</span></div>
+                                                                        <!-- /product price -->
+                                                                    </div>
+                                                                </div>
+                                                                <!-- /product -->
+                                                            </div><div class="slick-slide" tabindex="-1" role="option" aria-describedby="slick-slide13" style="width: 250px;" data-slick-index="3" aria-hidden="true">
+                                                                <!-- product -->
+                                                                <div class="product">
+                                                                    <div class="product__inside">
+                                                                        <!-- product image -->
+                                                                        <div class="product__inside__image">
+                                                                            <a href="/products/black-large" tabindex="-1"> <img src="//cdn.shopify.com/s/files/1/1236/4838/products/Black_001_ProductLarge_large.JPG?v=1460209182" alt="Black Large"> </a>
+                                                                        </div>
+                                                                        <!-- /product image -->
+                                                                        <!-- product name -->
+                                                                        <div class="product__inside__name">
+                                                                            <h2><a href="/products/black-large" tabindex="-1">Black Large</a></h2>
+                                                                        </div>
+                                                                        <!-- /product name -->
+                                                                        <!-- product price -->
+                                                                        <div class="product__inside__price price-box"><span class="money" data-currency-usd="$100.00">$100.00</span></div>
+                                                                        <!-- /product price -->
+                                                                    </div>
+                                                                </div>
+                                                                <!-- /product -->
+                                                            </div><div class="slick-slide slick-cloned" tabindex="-1" role="option" aria-describedby="slick-slide10" style="width: 250px;" data-slick-index="4" aria-hidden="true">
+                                                                <!-- product -->
+                                                                <div class="product">
+                                                                    <div class="product__inside">
+                                                                        <!-- product image -->
+                                                                        <div class="product__inside__image">
+                                                                            <a href="/products/adidas-originals-trainers" tabindex="-1"> <img src="//cdn.shopify.com/s/files/1/1236/4838/products/adidas_Originals_ZX_Flux_Weave_Black___Blue_Trainers_0_large.JPG?v=1476446528" alt="1"> </a>
+                                                                        </div>
+                                                                        <!-- /product image -->
+                                                                        <!-- product name -->
+                                                                        <div class="product__inside__name">
+                                                                            <h2><a href="/products/adidas-originals-trainers" tabindex="-1">adidas Originals Trainers</a></h2>
+                                                                        </div>
+                                                                        <!-- /product name -->
+                                                                        <!-- product price -->
+                                                                        <div class="product__inside__price price-box"><span class="money" data-currency-usd="$90.00">$90.00</span></div>
+                                                                        <!-- /product price -->
+                                                                    </div>
+                                                                </div>
+                                                                <!-- /product -->
+                                                            </div></div></div><button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block; top: 155px;">Next</button></div>
+                                                <!-- /carousel -->
+
+                                            </li>
+
+
+                                            <li class="col-sm-12 hidden-xs"><div class="hor-line"></div>
+                                                <ul class="list-inline brands-list">
+                                                    <li><a href="#"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/brand-01.png?7991156427119609511" alt=""></a></li>
+                                                    <li><a href="#"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/brand-03.png?7991156427119609511" alt=""></a></li>
+                                                    <li><a href="#"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/brand-02.png?7991156427119609511" alt=""></a></li>
+                                                    <li><a href="#"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/brand-05.png?7991156427119609511" alt=""></a></li>
+                                                    <li><a href="#"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/brand-04.png?7991156427119609511" alt=""></a></li>
+                                                    <li><a href="#"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/brand-06.png?7991156427119609511" alt=""></a></li>
+                                                    <li><a href="#"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/brand-07.png?7991156427119609511" alt=""></a></li>
+                                                    <li><a href="#"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/brand-08.png?7991156427119609511" alt=""></a></li>
+                                                    <li><a href="#"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/brand-09.png?7991156427119609511" alt=""></a></li>
+                                                    <li><a href="#"><img src="//cdn.shopify.com/s/files/1/1236/4838/files/brand-10.png?7991156427119609511" alt=""></a></li>
+                                                </ul></li>
+
+                                        </ul>
+
+
+
+
+                                    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <li class="dropdown dropdown-mega-menu dropdown-one-col">
+                                        <a href="https://goo.gl/Awvg8Q" class="dropdown-toggle" data-toggle="dropdown"><span class="act-underline">
+
+
+
+
+          Buy Theme!</span>
+                                        </a>
+
+
+
+                                        <ul class="dropdown-menu multicolumn " role="menu">
+                                            <li class="dl-back"><a href="#"><span class="icon icon-chevron_left"></span>back</a></li>
+
+
+                                            <li>
+                                                <a href="http://ocean.tonytemplates.com/shopify/yourstore-doc/">Documentation</a>
+
+
+                                            </li>
+
+                                            <li>
+                                                <a href="https://www.youtube.com/channel/UCDg7f6PvTo7hdcpPowI3UtA">Videos. Subscribe</a>
+
+
+                                            </li>
+
+                                        </ul>
+
+
+
+
+
+
+
+
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                        </nav>
+                    </div>
+                    <div class="pull-right col-sm-3 col-md-3 col-lg-2">
+                        <div class="text-right">
+                            <!-- search start -->
+                            <div class="search link-inline ">
+                                <a href="#" class="search__open"><span class="icon icon-search"></span></a>
+                                <div class="search-dropdown">
+                                    <form action="/search" method="get" style="position: relative;">
+                                        <div class="input-outer">
+                                            <input type="hidden" name="type" value="product">
+                                            <input type="text" name="q" class="search_field" value="" maxlength="128" placeholder="SEARCH:" autocomplete="off">
+                                            <button type="submit" title="" class="icon icon-search"></button>
+                                        </div>
+                                        <a href="#" class="search__close"><span class="icon icon-close"></span></a>
+                                        <ul class="search-results" style="position: absolute; left: 0px; top: 50px; display: none;"></ul></form>
+                                </div>
+                            </div>
+                            <!-- search end -->
+                            <!-- account menu start -->
+                            <div class="account link-inline ">
+                                <div class="dropdown text-right">
+                                    <a class="dropdown-toggle" data-toggle="dropdown">
+                                        <span class="icon icon-person "></span>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu--xs-full">
+                                        <li><a href="/account"><span class="icon icon-person"></span>Account</a></li>
+
+
+                                        <li><a href="/checkout"><span class="icon icon-done_all"></span>Checkout</a></li>
+
+
+                                        <li><a href="/account/login"><span class="icon icon-lock"></span>Sign In</a></li>
+                                        <li><a href="/account/register"><span class="icon icon-person_add"></span>Register</a></li>
+
+
+
+                                        <li class="dropdown-menu__close"><a href="#"><span class="icon icon-close"></span>close</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- account menu end -->
+
+
+                            <!-- shopping cart start -->
+                            <div class="cart link-inline header-cart">
+                                <div class="dropdown text-right">
+                                    <a class="dropdown-toggle">
+                                        <span class="icon icon-shopping_basket"></span>
+                                        <span class="badge badge--cart bigcounter">1</span>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu--xs-full slide-from-top cart-group-1" role="menu">
+                                        <div class="container">
+
+                                            <div class="cart__top">Recently added item(s)</div>
+                                            <a href="#" class="icon icon-close cart__close"><span>close</span></a>
+                                            <ul><li class="cart__item">
+                                                    <div class="cart__item__image pull-left"><a href="/products/adidas-originals-trainers?variant=19130315207"><img src="//cdn.shopify.com/s/files/1/1236/4838/products/adidas_Originals_ZX_Flux_Weave_Black___Blue_Trainers_0_small.JPG?v=1476446528" alt=""></a></div>
+                                                    <div class="cart__item__control">
+                                                        <div class="cart__item__delete"><a href="javascript:void(0);" onclick="Shopify.removeItem(19130315207)" class="icon icon-delete"><span>Delete</span></a></div>
+                                                        <div class="cart__item__edit"><a href="/products/adidas-originals-trainers?variant=19130315207" class="icon icon-edit"><span>Edit</span></a></div>
+                                                    </div>
+                                                    <div class="cart__item__info">
+                                                        <div class="cart__item__info__title">
+                                                            <h2 class="title-center"><a href="/products/adidas-originals-trainers?variant=19130315207">adidas Originals Trainers - 42 / Red</a></h2>
+                                                        </div>
+                                                        <div class="cart__item__info__price"><span class="info-label">Price:</span><span><span class="money" data-currency-usd="$90.00">$90.00</span></span></div>
+                                                        <div class="cart__item__info__price" style="right: 35%;"><span class="info-label">Qty:</span><span>1</span></div>
+                                                    </div>
+                                                </li></ul>
+                                            <div class="cart__bottom">
+                                                <a href="/checkout" class="btn btn--ys btn-checkout">Checkout <span class="icon icon--flippedX icon-reply"></span></a>
+                                                <div class="cart__total">Cart subtotal: <span class="shopping-cart__total"> <span class="money" data-currency-usd="$90.00">$90.00</span></span></div>
+                                                <a href="/cart" class="btn btn--ys"><span class="icon icon-shopping_basket"></span>View Cart</a>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- shopping cart end -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header></div>
+
+<section class="breadcrumbs show">
+    <div class="container">
+        <ol class="breadcrumb breadcrumb--ys pull-left">
+            <li class="home-link"><a href="/" class="icon icon-home"></a></li>
+
+            <li><span>Warranty and Services</span></li>
+
+
+        </ol>
+
+    </div>
+</section>
+
+<div id="pageContent" class="starthide show">
+    <!-- CONTENT section -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- title -->
+                <div class="title-box">
+                    <h1 class="text-left text-uppercase title-under">Warranty and services</h1>
+                </div>
+                <!-- /title --> <!--  -->
+                <h3 class="color title-decimal font30" data-content="1">What products are warranted?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <ul class="decimal-list font-bold color-dark">
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                    <li>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                    <li>Ut enim ad minim veniam, quis nostrud exercitation</li>
+                    <li>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                </ul>
+                <!-- / -->
+                <hr class="hr-lg">
+                <!--  -->
+                <h3 class="color title-decimal font30" data-content="2">Where to go for warranty service?</h3>
+                <p>Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <!-- / -->
+                <hr class="hr-lg">
+                <h3 class="color title-decimal font30" data-content="3">I can exchange or return an item?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                <div class="media-icon">
+                    <div class="media-icon--figure" href="#"><span class="icon icon-error font48 opacity-15"></span></div>
+                    <div class="media-icon--content">
+                        <p><em class="color-dark font18 main-font"> Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </em></p>
+                    </div>
+                </div>
+                <p>Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                <!-- / -->
+                <hr class="hr-lg">
+                <!--  -->
+                <h3 class="color title-decimal font30" data-content="4">In some cases, the warranty is not provided?</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <ul class="decimal-list font-bold color-dark">
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                    <li>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+                    <li>Ut enim ad minim veniam, quis nostrud exercitation</li>
+                    <li>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                </ul>
+                <!-- / -->
+            </div>
+        </div>
+    </div>
+    <!-- End CONTENT section -->
+</div>
+
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+</body>
 </html>

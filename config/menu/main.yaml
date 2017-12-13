@@ -1,0 +1,6 @@
+main:
+    - {name: 'Products', route: 'product_list'}
+    - {name: 'Vendors', route: 'news'}
+    - {name: 'Shipping', route: 'news'}
+    - {name: 'About Us', route: 'news'}
+    - {name: 'Contact', route: 'news'}

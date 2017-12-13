@@ -14,10 +14,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProductController extends Controller
 {
     /**
-     * @Route("/product", name="product")
+     * @Route("/products", name="product_list")
      */
-    public function homePage()
+    public function productListPage()
     {
-        return $this->render("page/home-page.html.twig");
+        return $this->render("product/product-list.html.twig");
+    }
+
+    /**
+     * @Route("/product/show", name="product_show")
+     */
+    public function productShowPage()
+    {
+        return $this->render("product/product-show.html.twig");
     }
 }

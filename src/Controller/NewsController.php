@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class NewsController extends Controller
 {
     /**
-     * @Route("/product", name="product")
+     * @Route("/news", name="news")
      */
     public function homePage()
     {

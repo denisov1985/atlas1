@@ -59,6 +59,15 @@
     "fzaninotto/faker": {
         "version": "v1.7.1"
     },
+    "guzzlehttp/guzzle": {
+        "version": "6.3.0"
+    },
+    "guzzlehttp/promises": {
+        "version": "v1.3.1"
+    },
+    "guzzlehttp/psr7": {
+        "version": "1.4.2"
+    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
@@ -80,6 +89,9 @@
     "psr/container": {
         "version": "1.0.0"
     },
+    "psr/http-message": {
+        "version": "1.0.1"
+    },
     "psr/log": {
         "version": "1.0.2"
     },
@@ -94,6 +106,9 @@
             "version": "4.0",
             "ref": "aaddfdf43cdecd4cf91f992052d76c2cadc04543"
         }
+    },
+    "symfony/browser-kit": {
+        "version": "v4.0.1"
     },
     "symfony/cache": {
         "version": "v4.0.1"
@@ -110,6 +125,9 @@
             "ref": "9f94d3ea453cd8a3b95db7f82592d7344fe3a76a"
         }
     },
+    "symfony/css-selector": {
+        "version": "v4.0.1"
+    },
     "symfony/debug": {
         "version": "v4.0.1"
     },
@@ -117,6 +135,9 @@
         "version": "v4.0.1"
     },
     "symfony/doctrine-bridge": {
+        "version": "v4.0.1"
+    },
+    "symfony/dom-crawler": {
         "version": "v4.0.1"
     },
     "symfony/dotenv": {

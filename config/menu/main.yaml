@@ -1,6 +1,17 @@
 main:
-    - {name: 'Products', route: 'product_list'}
-    - {name: 'Vendors', route: 'news'}
-    - {name: 'Shipping', route: 'news'}
-    - {name: 'About Us', route: 'news'}
-    - {name: 'Contact', route: 'news'}
+    product_list:
+        title: 'Спортивное питание'
+        sub:
+            product_show:
+                title: '%page_title%'
+            product_cart:
+                title: '%page_title%'
+    page_shipping:
+        title: 'Доставка и оплата'
+        sub:
+            product_ololo:
+                title: '%page_title%'
+    page_vendors:
+        title: 'Бренды'
+    page_contact:
+        title: 'Контакты'

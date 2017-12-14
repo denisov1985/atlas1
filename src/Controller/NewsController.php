@@ -18,6 +18,6 @@ class NewsController extends Controller
      */
     public function homePage()
     {
-        return $this->render("page/home-page.html.twig");
+        return $this->render("_shared/in-development.html.twig");
     }
 }

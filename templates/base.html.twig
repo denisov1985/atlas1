@@ -107,10 +107,10 @@
 
                                 <ul class="nav navbar-nav">
                                     <li class="dl-close"></li>
-                                    {% for menu in get_menu() %}
-                                        <li class="{% if (app.request.attributes.get('_route') == menu.route) %}selected{% endif %}">
-                                            <a href="{{ path(menu.route) }}" class="dropdown-toggle" data-toggle="dropdown"><span
-                                                        class="act-underline">{{ menu.name }}</span>
+                                    {% for route, menu in get_menu() %}
+                                        <li class="{% if (app.request.attributes.get('_route') == route) %}selected{% endif %}">
+                                            <a href="{{ path(route) }}" class="dropdown-toggle" data-toggle="dropdown"><span
+                                                        class="act-underline">{{ menu.title }}</span>
                                             </a>
                                         </li>
                                     {% endfor %}
@@ -239,9 +239,15 @@
     <div class="container">
         <ol class="breadcrumb breadcrumb--ys pull-left">
             <li class="home-link"><a href="/" class="icon icon-home"></a></li>
-
-            <li><span>Warranty and Services</span></li>
-
+            {% for route, menu in get_breadcrumbs() %}
+                {% if (menu.title != '') %}
+                    {% if menu.is_text is defined %}
+                        <li><span>{% block breadcrumb_title %}{{ menu.title }}{% endblock %}</span></li>
+                    {% else %}
+                        <li><span><a href="{{ path(route) }}">{{ menu.title }}</a></span></li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
 
         </ol>
 

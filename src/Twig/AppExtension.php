@@ -32,6 +32,38 @@ class AppExtension extends AbstractExtension
         ]));
     }
 
+    public function getBreadcrumbs()
+    {
+        $request = $this->container->get('request_stack')->getCurrentRequest();
+        $routeName = $request->get('_route');
+        $result = $this->_findMenuByRoute($routeName, $this->menu['main']);
+        if (empty($result)) {
+            return [[
+                'title' => ''
+            ]];
+        }
+        end($result);
+        $last = key($result);
+        $result[$last]['is_text'] = true;
+        return $result;
+    }
+
+    private function _findMenuByRoute($routeName, $inputMenu, $initial = []) {
+        foreach ($inputMenu as $route => $menu) {
+            if ($route == $routeName) {
+                $initial[$route] = $menu;
+                return $initial;
+            }
+            if (isset($menu['sub'])) {
+                $result = $this->_findMenuByRoute($routeName, $menu['sub'], [$route => $menu]);
+                if (!empty($result)) {
+                    return $result;
+                }
+            }
+        }
+        return [];
+    }
+
     public function getMenu()
     {
         return $this->menu['main'];
@@ -40,7 +72,8 @@ class AppExtension extends AbstractExtension
     public function getFunctions()
     {
         return [
-            new TwigFunction('get_menu', [$this, 'getMenu'])
+            new TwigFunction('get_menu', [$this, 'getMenu']),
+            new TwigFunction('get_breadcrumbs', [$this, 'getBreadcrumbs']),
         ];
     }
 

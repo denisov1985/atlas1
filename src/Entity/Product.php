@@ -29,6 +29,21 @@ class Product
     private $externalLink;
 
     /**
+     * @ORM\Column(type="json")
+     */
+    private $externalProperties;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $price;
+
+    /**
      * @return mixed
      */
     public function getId()

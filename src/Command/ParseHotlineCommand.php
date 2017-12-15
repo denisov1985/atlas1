@@ -45,7 +45,7 @@ class ParseHotlineCommand extends Command
     {
         $em = $this->conntainer->get('doctrine.orm.entity_manager');
 
-        for ($i = 0; $i < 54; $i++) {
+        for ($i = 0; $i < 1; $i++) {
             $links = $this->hotLine->getPageLinks($i);
             foreach ($links as $link) {
                 $product = $em->getRepository(Product::class)->findByExternalLink($link->getUrl());
@@ -53,8 +53,9 @@ class ParseHotlineCommand extends Command
                     $product = new Product();
                     $product->setName($link->getTitle());
                     $product->setExternalLink($link->getUrl());
-                    $em->persist($product);
                 }
+                $this->hotLine->getPageContent($link->getUrl(), $product);
+                $em->persist($product);
             }
             $em->flush();
         }

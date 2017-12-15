@@ -91,5 +91,52 @@ class Product
         $this->externalLink = $externalLink;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getExternalProperties()
+    {
+        return $this->externalProperties;
+    }
+
+    /**
+     * @param mixed $externalProperties
+     */
+    public function setExternalProperties($externalProperties)
+    {
+        $this->externalProperties = $externalProperties;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param mixed $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
 
 }

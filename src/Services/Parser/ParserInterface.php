@@ -8,8 +8,10 @@
 
 namespace App\Services\Parser;
 
+use App\Entity\Product;
+
 interface ParserInterface
 {
     public function getPageLinks($pageNumber);
-    public function getPageContent($pageUrl);
+    public function getPageContent($pageUrl, Product $product);
 }

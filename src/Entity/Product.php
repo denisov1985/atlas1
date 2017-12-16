@@ -29,6 +29,11 @@ class Product
     private $externalLink;
 
     /**
+     * @ORM\Column(type="text")
+     */
+    private $externalImage;
+
+    /**
      * @ORM\Column(type="json")
      */
     private $externalProperties;
@@ -137,6 +142,22 @@ class Product
     public function setPrice($price)
     {
         $this->price = $price;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getExternalImage()
+    {
+        return $this->externalImage;
+    }
+
+    /**
+     * @param mixed $externalImage
+     */
+    public function setExternalImage($externalImage)
+    {
+        $this->externalImage = $externalImage;
     }
 
 }

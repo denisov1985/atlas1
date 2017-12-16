@@ -12,13 +12,15 @@ use App\Entity\Product;
 use GuzzleHttp\ClientInterface;
 use Symfony\Component\DomCrawler\Crawler;
 
-class HotLine implements ParserInterface
+class HotLine
 {
     const BASE_URL = 'http://hotline.ua';
 
     private $client;
     private $crawler;
+    private $userAgentCollection;
 
+    private $initialCookies = 'hl_sid=7a68b8dc06701b44007b3da678a2a9a0; region=1; city_id=187; region_mode=1; currency=uah; hl_guest_id=94f71aae1127e6ebe7aab67903608f10; gd_order_primary=0; PHPSESSID=4c80db6cae7e493debc44bcd6d15cedf; _ga=GA1.2.2130024232.1513417454; hluniqueid=173ee67249954ca5c8d6bf02fc30669f; hluniqueid_ctl=7c9f5d5b2d65e0cd71544ed9605e33df; language=ru; region_popup=3; guest_visited_cards=%5B%228667005%22%5D; _dc_gtm_UA-2141710-13=1; _gid=GA1.2.1839350078.';
     /**
      * HotLine constructor.
      * @param ClientInterface $client
@@ -29,6 +31,7 @@ class HotLine implements ParserInterface
     {
         $this->client = $client;
         $this->crawler = $crawler;
+        $this->userAgentCollection = json_decode(file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'user-agent.json'), true);
     }
 
     /**
@@ -38,9 +41,12 @@ class HotLine implements ParserInterface
     public function getPageLinks($pageNumber)
     {
         $links = [];
-        $url = self::BASE_URL . '/sport/sportivnoe-pitanie/79690/?p=' . $pageNumber;
+        if ($pageNumber == 0) {
+            $url = self::BASE_URL . '/sport/sportivnoe-pitanie/';
+        }   else  {
+            $url = self::BASE_URL . '/sport/sportivnoe-pitanie/?p=' . $pageNumber;
+        }
         $content = $this->_getContent($url);
-        file_put_contents("c:\\symfony\\content.html", $content);
 
         $crawler = new Crawler($content);
         $crawler = $crawler->filter('.info-description .h4 a');
@@ -60,6 +66,13 @@ class HotLine implements ParserInterface
         $content = $this->_getContent($pageUrl);
 
         $crawler = new Crawler($content);
+
+        $data = explode('"csrf-token" content="', $content);
+        $data = explode('"', $data[1]);
+        $token = $data[0];
+
+        $image = $this->getImage($pageUrl, $token);
+        $product->setExternalImage($image);
         $data = $crawler->filter('.resume-description .text');
         $description = str_ireplace('... развернуть  свернуть', '', trim($data->text()));
         $product->setDescription($description);
@@ -69,7 +82,7 @@ class HotLine implements ParserInterface
         if (isset($priceData[1])) {
             $lowPrice  = (int) trim(str_ireplace(' ', '', $priceData[0]));
             $highPrice = (int) trim(mb_convert_encoding($priceData[1], 'ASCII'));
-            $avg = ($lowPrice + $highPrice) / 2;
+            $avg = (int) floor(($lowPrice + $highPrice) / 2);
         }   else  {
             $avg = 0;
         }
@@ -97,9 +110,61 @@ class HotLine implements ParserInterface
 
 
     private function _getContent($pageUrl) {
+
+        $cookieFile = dirname(dirname(dirname(__DIR__))) . DIRECTORY_SEPARATOR . 'var' . DIRECTORY_SEPARATOR . 'cookies.txt';
+        if (!file_exists($cookieFile)) {
+            file_put_contents($cookieFile, '');
+        }
+        $cookieString = file_get_contents($cookieFile);
+        $cookieData = \json_decode($cookieString, true);;
+        $requestCookiesData = [];
+        foreach ($cookieData as $key => $value) {
+            $requestCookiesData[] = "$key=$value";
+        }
+        $requestCookie = implode('; ', $requestCookiesData);
+        dump("Parsing: $pageUrl");
+        //$agent = $this->userAgentCollection[rand(0, count($this->userAgentCollection) - 1)];
+        //dump($agent);
+        if (!empty($this->initialCookies)) {
+            $requestCookie = $this->initialCookies;
+        }
         $response = $this->client->request('GET', $pageUrl, [
             'headers' => [
-                'Cookie' => 'hl_sid=614e4c802eb086fd12c3f0f5530d9e42; hl_guest_id=896237554042a437de310fb06d2c324e; PHPSESSID=3c4a5ce1d1c099d987c0d981bac31558; hluniqueid=0dddd5e542cd43fcfa245808feba1c32; hluniqueid_ctl=681b9c2330e838dfd3d11b6eb989b924; region_popup=3; search_uid=af571a45980c95cced4f; language=ru; catmode=lines; guest_visited_cards=%5B%227728132%22%2C%221936300%22%2C%221403461%22%2C%2211662246%22%2C%227703417%22%2C%221426474%22%2C%228299860%22%5D; fullinfo=0; _dc_gtm_UA-2141710-13=1; gd_order_primary=0; _ga=GA1.2.939944401.1513258887; _gid=GA1.2.1975691555.1513343570; region=1; city_id=187; region_mode=1; currency=uah'
+                'User-Agent' => 'Googlebot/2.1 (+http://www.google.com/bot.html)',
+                'Cookie' => $requestCookie . mktime()
+            ]
+        ]);
+        $headers = $response->getHeaders();
+        dump($headers);
+        $cookies = $headers['Set-Cookie'];
+        $cookieCollection = [];
+        foreach ($cookies as $cookie) {
+            $data = explode(';', $cookie);
+            $data = explode('=', $data[0]);
+            $cookieCollection[$data[0]] = $data[1];
+        }
+
+        $oldCookies = json_decode(file_get_contents($cookieFile), true);
+        foreach ($cookieCollection as $key => $value) {
+            $oldCookies[$key] = $value;
+        }
+        file_put_contents($cookieFile, \json_encode($oldCookies));
+        return $response->getBody()->getContents();
+    }
+
+    public function getImage($url, $token)
+    {
+        $requestCookie = '';
+        if (!empty($this->initialCookies)) {
+            $requestCookie = $this->initialCookies;
+        }
+        $response = $this->client->request('GET', $url . 'get-product-gallery-content/', [
+            'headers' => [
+                'User-Agent' => 'Googlebot/2.1 (+http://www.google.com/bot.html)',
+                'Cookie' => $requestCookie . mktime(),
+                'X-CSRF-Token' => $token,
+                'X-Requested-With' => 'XMLHttpRequest',
+                'Referer' => $url
             ]
         ]);
         return $response->getBody()->getContents();
@@ -107,7 +172,7 @@ class HotLine implements ParserInterface
 
     public static function getCategories()
     {
-        return explode('-', '79680-79681-79682-79683-79685-79686-79687-79688-79689-79690-79942-139594-139595-139596-139597-139598-139599-139600-139608-371222-556450');
+        return explode('-', '139594-79680-79681-79682-79683-79685-79686-79687-79688-79689-79690-79942-139595-139596-139597-139598-139599-139600-139608-371222-556450');
     }
 
 }

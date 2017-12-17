@@ -11,6 +11,7 @@ namespace App\Services\Parser;
 use App\Entity\Product;
 use GuzzleHttp\ClientInterface;
 use Symfony\Component\DomCrawler\Crawler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class HotLine
 {
@@ -20,7 +21,7 @@ class HotLine
     private $crawler;
     private $userAgentCollection;
 
-    private $initialCookies = 'hl_sid=7a68b8dc06701b44007b3da678a2a9a0; region=1; city_id=187; region_mode=1; currency=uah; hl_guest_id=94f71aae1127e6ebe7aab67903608f10; gd_order_primary=0; PHPSESSID=4c80db6cae7e493debc44bcd6d15cedf; _ga=GA1.2.2130024232.1513417454; hluniqueid=173ee67249954ca5c8d6bf02fc30669f; hluniqueid_ctl=7c9f5d5b2d65e0cd71544ed9605e33df; language=ru; region_popup=3; guest_visited_cards=%5B%228667005%22%5D; _dc_gtm_UA-2141710-13=1; _gid=GA1.2.1839350078.';
+    private $initialCookies = 'hl_sid=7a68b8dc06701b44007b3da678a2a9a0; region=1; city_id=187; region_mode=1; currency=uah; hl_guest_id=94f71aae1127e6ebe7aab67903608f10; gd_order_primary=0; PHPSESSID=4c80db6cae7e493debc44bcd6d15cedf; _ga=GA1.2.2130024232.1513417454; hluniqueid=173ee67249954ca5c8d6bf02fc30669f; hluniqueid_ctl=7c9f5d5b2d65e0cd71544ed9605e33df; language=ru; region_popup=3; fullinfo=1; _dc_gtm_UA-2141710-13=1; guest_visited_cards=%5B%228667005%22%2C%221415190%22%2C%2211907155%22%2C%227728133%22%2C%228223703%22%2C%222238722%22%5D; _gat_UA-2141710-13=1; _gid=GA1.2.815135830.';
     /**
      * HotLine constructor.
      * @param ClientInterface $client
@@ -73,12 +74,20 @@ class HotLine
 
         $image = $this->getImage($pageUrl, $token);
         $product->setExternalImage($image);
+
         $data = $crawler->filter('.resume-description .text');
         $description = str_ireplace('... развернуть  свернуть', '', trim($data->text()));
+
         $product->setDescription($description);
         $data = $crawler->filter('.resume-price .value');
-        $priceText = trim($data->text());
-        $priceData = explode('–', $priceText);
+
+        try {
+            $priceText = trim($data->text());
+            $priceData = explode('–', $priceText);
+        } catch (\Exception $e) {
+            $priceData = [];
+        }
+
         if (isset($priceData[1])) {
             $lowPrice  = (int) trim(str_ireplace(' ', '', $priceData[0]));
             $highPrice = (int) trim(mb_convert_encoding($priceData[1], 'ASCII'));
@@ -134,8 +143,13 @@ class HotLine
                 'Cookie' => $requestCookie . mktime()
             ]
         ]);
+
+
         $headers = $response->getHeaders();
         dump($headers);
+        if (!isset($headers['Set-Cookie'])) {
+            throw new NotFoundHttpException('Not found');
+        }
         $cookies = $headers['Set-Cookie'];
         $cookieCollection = [];
         foreach ($cookies as $cookie) {

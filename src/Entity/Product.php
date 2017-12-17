@@ -39,6 +39,11 @@ class Product
     private $externalProperties;
 
     /**
+     * @ORM\Column(type="json", nullable=true)
+     */
+    private $productImage;
+
+    /**
      * @ORM\Column(type="text")
      */
     private $description;
@@ -159,5 +164,22 @@ class Product
     {
         $this->externalImage = $externalImage;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getProductImage()
+    {
+        return $this->productImage;
+    }
+
+    /**
+     * @param mixed $productImage
+     */
+    public function setProductImage($productImage)
+    {
+        $this->productImage = $productImage;
+    }
+
 
 }

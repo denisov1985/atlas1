@@ -15,6 +15,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 
 class ParseHotlineContentCommand extends Command
@@ -47,15 +48,19 @@ class ParseHotlineContentCommand extends Command
         $em = $this->conntainer->get('doctrine.orm.entity_manager');
         $query = $em->getRepository(Product::class)
             ->createQueryBuilder('p')
-            //->andWhere('p.description = :desc')
-            //->setParameter('desc', '')
+            ->andWhere('p.description = :desc')
+            ->setParameter('desc', '')
             ->getQuery();
 
         $products = $query->getResult();
         dump(count($products));
         foreach ($products as $product) {
-            $this->hotLine->getPageContent($product->getExternalLink(), $product);
-            $em->persist($product);
+            try {
+                $this->hotLine->getPageContent($product->getExternalLink(), $product);
+                $em->persist($product);
+            }   catch (NotFoundHttpException $e) {
+                $em->remove($product);
+            }
             $em->flush();
         }
 

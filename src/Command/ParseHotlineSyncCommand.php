@@ -52,7 +52,9 @@ class ParseHotlineSyncCommand extends Command
         $query = $em->getRepository(Product::class)
             ->createQueryBuilder('p')
             ->andWhere('p.description != :desc')
+            ->andWhere('p.productImage == :image')
             ->setParameter('desc', '')
+            ->setParameter('image', '')
             ->getQuery();
 
         $result = $query->getResult();

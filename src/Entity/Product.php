@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -54,9 +55,21 @@ class Product
     private $price;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Image", mappedBy="images")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Image", inversedBy="products")
      */
     private $images;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Image")
+     */
+    private $coverImage;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
+
     /**
      * @return mixed
      */
@@ -177,4 +190,47 @@ class Product
         $this->images[] = $image;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    public function getMainImage()
+    {
+        return $this->images[0];
+    }
+
+    /**
+     * @param Image $inputImage
+     * @return bool
+     */
+    public function hasImage(Image $inputImage)
+    {
+        $has = false;
+        foreach ($this->images as $image) {
+            if ($image->getId() === $inputImage->getId()) {
+                $has = true;
+            }
+        }
+        return $has;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCoverImage()
+    {
+        return $this->coverImage;
+    }
+
+    /**
+     * @param mixed $coverImage
+     */
+    public function setCoverImage(Image $coverImage)
+    {
+        $this->coverImage = $coverImage;
+    }
 }

@@ -8,6 +8,7 @@
 
 namespace App\Command;
 
+use App\Entity\Image;
 use App\Entity\Product;
 use App\Services\Parser\HotLine;
 use Symfony\Component\Config\Definition\Exception\Exception;
@@ -44,9 +45,11 @@ class ParseHotlineCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $path = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . 'data';
         $em = $this->conntainer->get('doctrine.orm.entity_manager');
 
-            for ($i = 329; $i < 400; $i++) {
+            for ($i = 7; $i < 400; $i++) {
+                dump('Page: ' . $i);
                 sleep(5);
                 try {
                     $links = $this->hotLine->getPageLinks($i);
@@ -63,16 +66,43 @@ class ParseHotlineCommand extends Command
                 foreach ($links as $link) {
                     $product = $em->getRepository(Product::class)->findByExternalLink($link->getUrl());
                     if (empty($product)) {
-                        $product = new Product();
+                        dump(($link));
+                        die('empty');
+                        /*$product = new Product();
                         $product->setName($link->getTitle());
                         $product->setExternalLink($link->getUrl());
                         $product->setExternalProperties('');
                         $product->setPrice(0);
-                        $product->setDescription('');
+                        $product->setDescription('');*/
                     }   else  {
                         $product = $product[0];
                     }
-                    //$this->hotLine->getPageContent($link->getUrl(), $product);
+
+                    $fileData = explode('.', $link->getImage());
+                    $rawImg = file_get_contents($link->getImage());
+                    $checkSum = md5($rawImg);
+                    $imgPath  = $checkSum[0] . $checkSum[1];
+                    $imgFullPath = join(DIRECTORY_SEPARATOR, [$path, $imgPath]);
+                    if (!is_dir($imgFullPath)) {
+                        mkdir($imgFullPath);
+                    }
+                    $fullPath = join(DIRECTORY_SEPARATOR, [$path, $imgPath, $checkSum . '.' . $fileData[count($fileData) - 1]]);
+                    dump($fullPath);
+
+                    $result = $em->getRepository(Image::class)->findByName($checkSum);
+
+                    if (!file_exists($fullPath)) {
+                        file_put_contents($fullPath, $rawImg);
+                    }
+
+                    if (!empty($result)) {
+                        $image = $result[0];
+                    }   else  {
+                        $image = new Image();
+                        $image->setName($checkSum);
+                    }
+                    $product->setCoverImage($image);
+                    $em->persist($image);
                     $em->persist($product);
                 }
                 $em->flush();

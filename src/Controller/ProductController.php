@@ -8,6 +8,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Product;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -18,7 +19,19 @@ class ProductController extends Controller
      */
     public function productListPage()
     {
-        return $this->render("product/product-list.html.twig");
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->getRepository(Product::class)->createQueryBuilder('p');
+
+        $query = $qb->andWhere($qb->expr()->isNotNull('p.coverImage'))
+            ->setMaxResults(20)
+            ->getQuery();
+
+
+        $products = $query->getResult();
+
+        return $this->render("product/product-list.html.twig", [
+            'products' => $products
+        ]);
     }
 
     /**

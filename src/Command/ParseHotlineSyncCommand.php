@@ -56,7 +56,7 @@ class ParseHotlineSyncCommand extends Command
             ->andWhere('p.id > :id')
             //->andWhere('p.productImage = :image')
             ->setParameter('desc', '')
-            ->setParameter('id', 11444)
+            ->setParameter('id', 12523)
             //->setParameter('image', '')
             ->getQuery();
 
@@ -99,8 +99,8 @@ class ParseHotlineSyncCommand extends Command
                     $image = new Image();
                     $image->setName($checkSum);
                 }
-                if (!$image->hasProduct($product)) {
-                    $image->addProduct($product);
+                if (!$product->hasImage($image)) {
+                    $product->addImage($image);
                 }
                 $em->persist($image);
             }

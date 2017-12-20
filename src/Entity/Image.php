@@ -24,7 +24,7 @@ class Image
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Product", inversedBy="images")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Product", mappedBy="images")
      */
     private $products;
 
@@ -80,6 +80,21 @@ class Image
             }
         }
         return $has;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getProducts()
+    {
+        return $this->products;
+    }
+
+    public function getUrl()
+    {
+        $checkSum = $this->name;
+        $imgPath  = $checkSum[0] . $checkSum[1];
+        return '/images/data/' . $imgPath . '/' . $this->name . '.jpg';
     }
 
 }

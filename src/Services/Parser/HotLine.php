@@ -50,14 +50,20 @@ class HotLine
         $content = $this->_getContent($url);
 
         $crawler = new Crawler($content);
-        $crawler = $crawler->filter('.info-description .h4 a');
+        $crawler = $crawler->filter('.product-item');
 
         foreach ($crawler as $domElement) {
+            if ($domElement->getAttribute('class') === 'product-item product-item-ad') {
+                continue;
+            }
+            $l = $domElement->childNodes->item(3)->childNodes->item(1)->childNodes->item(1)->getAttribute('data-image-tip');
+            dump($l);
             $link = new Link();
-            $link->setTitle(trim($domElement->textContent));
-            $link->setUrl(self::BASE_URL . trim($domElement->getAttribute('href')));
-            dump($link);
+            //$link->setTitle(trim($domElement->textContent));
+            $link->setUrl(self::BASE_URL . trim($domElement->childNodes->item(3)->childNodes->item(1)->getAttribute('href')));
+            $link->setImage(self::BASE_URL . $l);
             $links[] = $link;
+            dump($link);
         }
         return $links;
     }

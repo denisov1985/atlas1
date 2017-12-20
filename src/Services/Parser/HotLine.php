@@ -21,7 +21,7 @@ class HotLine
     private $crawler;
     private $userAgentCollection;
 
-    private $initialCookies = 'hl_sid=7a68b8dc06701b44007b3da678a2a9a0; region=1; city_id=187; region_mode=1; currency=uah; hl_guest_id=94f71aae1127e6ebe7aab67903608f10; gd_order_primary=0; PHPSESSID=4c80db6cae7e493debc44bcd6d15cedf; _ga=GA1.2.2130024232.1513417454; hluniqueid=173ee67249954ca5c8d6bf02fc30669f; hluniqueid_ctl=7c9f5d5b2d65e0cd71544ed9605e33df; language=ru; region_popup=3; fullinfo=1; _dc_gtm_UA-2141710-13=1; guest_visited_cards=%5B%228667005%22%2C%221415190%22%2C%2211907155%22%2C%227728133%22%2C%228223703%22%2C%222238722%22%5D; _gat_UA-2141710-13=1; _gid=GA1.2.815135830.';
+    private $initialCookies = 'region=1; city_id=187; region_mode=1; currency=uah; hl_sid=614e4c802eb086fd12c3f0f5530d9e42; hl_guest_id=896237554042a437de310fb06d2c324e; PHPSESSID=3c4a5ce1d1c099d987c0d981bac31558; region_popup=3; search_uid=af571a45980c95cced4f; language=ru; catmode=lines; fullinfo=0; gd_order_primary=0; _dc_gtm_UA-2141710-13=1; _gat_UA-2141710-13=1; guest_visited_cards=%5B%227728132%22%2C%221936300%22%2C%221403461%22%2C%2211662246%22%2C%227703417%22%2C%221426474%22%2C%228299860%22%2C%221426473%22%5D; _ga=GA1.2.939944401.1513258887; _gid=GA1.2.427384566.';
     /**
      * HotLine constructor.
      * @param ClientInterface $client
@@ -120,17 +120,6 @@ class HotLine
 
     private function _getContent($pageUrl) {
 
-        $cookieFile = dirname(dirname(dirname(__DIR__))) . DIRECTORY_SEPARATOR . 'var' . DIRECTORY_SEPARATOR . 'cookies.txt';
-        if (!file_exists($cookieFile)) {
-            file_put_contents($cookieFile, '');
-        }
-        $cookieString = file_get_contents($cookieFile);
-        $cookieData = \json_decode($cookieString, true);;
-        $requestCookiesData = [];
-        foreach ($cookieData as $key => $value) {
-            $requestCookiesData[] = "$key=$value";
-        }
-        $requestCookie = implode('; ', $requestCookiesData);
         dump("Parsing: $pageUrl");
         //$agent = $this->userAgentCollection[rand(0, count($this->userAgentCollection) - 1)];
         //dump($agent);
@@ -140,7 +129,7 @@ class HotLine
         $response = $this->client->request('GET', $pageUrl, [
             'headers' => [
                 'User-Agent' => 'Googlebot/2.1 (+http://www.google.com/bot.html)',
-                'Cookie' => $requestCookie . mktime()
+                'Cookie' => $requestCookie . mktime() . ';'
             ]
         ]);
 
@@ -158,11 +147,6 @@ class HotLine
             $cookieCollection[$data[0]] = $data[1];
         }
 
-        $oldCookies = json_decode(file_get_contents($cookieFile), true);
-        foreach ($cookieCollection as $key => $value) {
-            $oldCookies[$key] = $value;
-        }
-        file_put_contents($cookieFile, \json_encode($oldCookies));
         return $response->getBody()->getContents();
     }
 

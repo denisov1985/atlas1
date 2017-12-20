@@ -8,6 +8,7 @@
 
 namespace App\Command;
 
+use App\Entity\Image;
 use App\Entity\Product;
 use App\Services\Parser\HotLine;
 use Symfony\Component\Config\Definition\Exception\Exception;
@@ -52,43 +53,61 @@ class ParseHotlineSyncCommand extends Command
         $query = $em->getRepository(Product::class)
             ->createQueryBuilder('p')
             ->andWhere('p.description != :desc')
-            ->andWhere('p.productImage == :image')
+            ->andWhere('p.id > :id')
+            //->andWhere('p.productImage = :image')
             ->setParameter('desc', '')
-            ->setParameter('image', '')
+            ->setParameter('id', 11444)
+            //->setParameter('image', '')
             ->getQuery();
 
         $result = $query->getResult();
-
-        foreach ($result as $product) {
+        $total = count($result);
+        foreach ($result as $key => $product) {
+            dump("$key / $total");
+            dump($product->getName());
             /** @var Product $product */
             $json = $product->getExternalImage();
             $data = \json_decode($json, true);
-            dump($data['data']);
+            //dump($data['data']);
 
             $crawler = new Crawler($data['data']);
             $images  = $crawler->filter('img');
 
-            $folderName = md5($product->getExternalLink());
-            $dir = $path . DIRECTORY_SEPARATOR . $folderName;
-            dump($dir);
-            if (!is_dir($dir)) {
-                mkdir($dir);
-            }
-
-            $jsonToSave = [];
             foreach ($images as $img) {
                 if (empty($img->getAttribute('data-gallery-image'))) {
                     continue;
                 }
+                $fileData = explode('.', $img->getAttribute('data-gallery-image'));
                 $rawImg = file_get_contents($img->getAttribute('data-gallery-image'));
-                $fileData = explode('/', $img->getAttribute('data-gallery-image'));
-                file_put_contents($dir . DIRECTORY_SEPARATOR . $fileData[count($fileData) - 1], $rawImg);
-                dump($img->getAttribute('data-gallery-image'));
-                $jsonToSave[] = $folderName . DIRECTORY_SEPARATOR . $fileData[count($fileData) - 1];
+                $checkSum = md5($rawImg);
+                $imgPath  = $checkSum[0] . $checkSum[1];
+                $imgFullPath = join(DIRECTORY_SEPARATOR, [$path, $imgPath]);
+                if (!is_dir($imgFullPath)) {
+                    mkdir($imgFullPath);
+                }
+                $fullPath = join(DIRECTORY_SEPARATOR, [$path, $imgPath, $checkSum . '.' . $fileData[count($fileData) - 1]]);
+
+                $result = $em->getRepository(Image::class)->findByName($checkSum);
+
+                if (!file_exists($fullPath)) {
+                    file_put_contents($fullPath, $rawImg);
+                }
+
+                if (!empty($result)) {
+                    $image = $result[0];
+                }   else  {
+                    $image = new Image();
+                    $image->setName($checkSum);
+                }
+                if (!$image->hasProduct($product)) {
+                    $image->addProduct($product);
+                }
+                $em->persist($image);
             }
-            $product->setProductImage($jsonToSave);
+
             $em->persist($product);
             $em->flush();
+
             sleep(1);
         }
 

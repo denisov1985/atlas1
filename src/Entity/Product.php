@@ -54,6 +54,10 @@ class Product
     private $price;
 
     /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Image", mappedBy="images")
+     */
+    private $images;
+    /**
      * @return mixed
      */
     public function getId()
@@ -166,20 +170,11 @@ class Product
     }
 
     /**
-     * @return mixed
+     * @param Image $image
      */
-    public function getProductImage()
+    public function addImage(Image $image)
     {
-        return $this->productImage;
+        $this->images[] = $image;
     }
-
-    /**
-     * @param mixed $productImage
-     */
-    public function setProductImage($productImage)
-    {
-        $this->productImage = $productImage;
-    }
-
 
 }
